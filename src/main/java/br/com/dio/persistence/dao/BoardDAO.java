@@ -22,9 +22,9 @@ public class BoardDAO {
             statement.setString(1, entity.getName());
             statement.executeUpdate();
             if (statement instanceof StatementImpl impl) {
-                entity.setId(impl.getLastInsertID()); // Corrigido de setld para setId
+                entity.setId(impl.getLastInsertID());
             }
-            logger.debug("Quadro inserido no banco: ID {}", entity.getId()); // Corrigido de getld para getId
+            logger.debug("Quadro inserido no banco: ID {}", entity.getId());
             return entity;
         }
     }
@@ -45,8 +45,8 @@ public class BoardDAO {
             var resultSet = statement.executeQuery();
             if (resultSet.next()) {
                 var entity = new BoardEntity();
-                entity.setId(resultSet.getLong("id")); // Corrigido de setld para setId
-                entity.setName(resultSet.getString("name")); // setName existe na entidade
+                entity.setId(resultSet.getLong("id"));
+                entity.setName(resultSet.getString("name"));
                 logger.debug("Quadro encontrado: ID {}", id);
                 return Optional.of(entity);
             }

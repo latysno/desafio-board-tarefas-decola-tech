@@ -33,5 +33,4 @@ public class BoardEntity {
                 .filter(filter)
                 .findFirst().orElseThrow();
     }
-
 }
